@@ -1,10 +1,11 @@
 # TGR Testy
 ## O co se jedná?
 Projekt obsahuje jednoduchý testovací/validační skript, který slouží k ověření a otestování projektu do tgr. Po dodání zipu a testů, které nad ním chcete provést skript provede následující kroky:
+
 1. Rozbalí zip do adresáře projekt
-2. Ověří, zda je struktůra projektu správná (zda obsahuje všechny soubory atd...)
-3. Spustí make v ./projekt
-4. Nad vytvořenýmí spustitelnými soubory spustí všechny specifikované testy
+1. Ověří, zda je struktůra projektu správná (zda obsahuje všechny soubory atd...)
+1. Spustí make v ./projekt
+1. Nad vytvořenýmí spustitelnými soubory spustí všechny specifikované testy
 
 ## Jak to použít?
 Stačí na první místo vložit název zipu a pak dodat testy, které chcete nad zipem provést. Příklad volání zde:
