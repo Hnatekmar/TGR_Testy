@@ -1,0 +1,7 @@
+{
+    "jmeno" : "Test ze zadání",
+    "stdin" : "Centralni, Brno_01, Brno_02, Praha, Ostrava, Export\nauto_01: Centralni > Brno_01 > Brno_02\nauto_02: Centralni > Ostrava > Centralni\nletadlo_01: Centralni > Export\nvlak_a: Praha > Centralni\nauto_03: Brno_01 > Brno_02",
+    "stdout" : "nejvice navstevovany: Centralni 5\nexistuje vice spojeni: ano\nzbozi zpet do skladu:ano",
+    "popis" : "Test, který je popsaný v zadání",
+    "spustitelny_soubor" : "distribution"
+}

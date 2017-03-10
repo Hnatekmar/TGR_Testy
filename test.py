@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 Skript kontroluje / testuje zadání z TGR
 """
@@ -63,15 +62,11 @@ def do_test(case, name):
         pass
 
     try:
-        completed_process = subprocess.run([ "./projekt/" + case['spustitelny_soubor']], stdout=subprocess.PIPE)
-        if case['selhani'] == "ano":
-            if completed_process.returncode == 0:
-                print("\tOčekával jsem selhání ale program prošel", file=sys.stderr)
-                return
-        else:
-            if completed_process.stdout.decode('ascii') != case['stdout']:
-                print("\tStdout v tomto případě nesedí \n %s \n %s" % (completed_process.stdout, case['stdout']), file=sys.stderr)
-                return
+        (out, err) = subprocess.Popen([ "./projekt/" + case['spustitelny_soubor']], stdout=subprocess.PIPE).communicate(case['stdin'])
+        print("STDERR:", err)
+        if out.decode('ascii') != case['stdout']:
+            print("\tStdout v tomto případě nesedí \n %s \n %s" % (completed_process.stdout, case['stdout']), file=sys.stderr)
+            return
 
         print("\tTest proběhl ok")
 
@@ -89,7 +84,7 @@ def test_executable(name):
             json_data = json.loads(json_data)
             do_test(json_data, name)
 
-        except json.JSONDecodeError:
+        except ValueError:
             print("Soubor %s neobsahuje validní json přeskakuji ho!" % name)
 
 if __name__ == '__main__':
@@ -101,7 +96,7 @@ if __name__ == '__main__':
     test_file(sys.argv[1])
     test_names = sys.argv[2:]
 
-    subprocess.run(['make', '-C', './projekt'], check = True)
+    subprocess.call(['make', '-C', './projekt'])
     for test in test_names:
         print("Provádím testy pro %s" % test)
         test_executable("./" + test)
