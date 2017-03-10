@@ -18,7 +18,7 @@ class ExitCodes(Enum):
 def print_help():
     print("""
             Skript pro ověřování / testování projektů do TGR
-            ./tester.py soubor.zip [testy]
+            ./test.py soubor.zip [testy]
           """)
 
 
