@@ -62,10 +62,9 @@ def do_test(case, name):
         pass
 
     try:
-        (out, err) = subprocess.Popen([ "./projekt/" + case['spustitelny_soubor']], stdout=subprocess.PIPE).communicate(case['stdin'])
-        print("STDERR:", err)
+        (out, err) = subprocess.Popen([ "./projekt/" + case['spustitelny_soubor']], stdout=subprocess.PIPE, stdin=subprocess.PIPE).communicate(case['stdin'].encode('ascii'))
         if out.decode('ascii') != case['stdout']:
-            print("\tStdout v tomto případě nesedí \n %s \n %s" % (completed_process.stdout, case['stdout']), file=sys.stderr)
+            print("\tStdout v tomto případě nesedí \n %s \n %s" % (out, case['stdout']), file=sys.stderr)
             return
 
         print("\tTest proběhl ok")
