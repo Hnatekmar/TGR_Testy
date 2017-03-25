@@ -1,0 +1,7 @@
+{
+    "jmeno" : "Test 02",
+	"stdin" : "Viden, Brno_01, Brno_02, Praha, Ostrava, Berlin\nauto_01: Viden > Brno_01 > Praha > Ostrava\nauto_02: Brno_02 > Ostrava > Berlin > Praha\nletadlo_01: Viden > Brno_01 > Praha\nvlak_a: Praha > Viden\nauto_03: Brno_01 > Praha > Berlin\nlod_01: Praha > Berlin",
+    "stdout" : "nejvice navstevovany: Praha 5\nexistuje vice spojeni: ano\nzbozi zpet do skladu:ano",
+    "popis" : "Test 02 upraveny pro ulohu distributions",
+    "spustitelny_soubor" : "distribution"
+}
